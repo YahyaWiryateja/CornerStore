@@ -12,7 +12,8 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Username</th>
+                            <th>No HP</th>
+                            <th>Alamat</th>
                             <th>E-mail</th>
                             <th>Role</th>
                             <th>Action</th>
@@ -22,13 +23,14 @@
                         @foreach($user as $user)
                         <tr>
                             <td>{{$user->name}}</td>
-                            <td>{{$user->username}}</td>
+                            <td>{{$user->nohp}}</td>
+                            <td>{{$user->alamat}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->role->role_id}}</td>
+                            <td>{{$user->role->role}}</td>
                             <td class="d-flex justify-content-around">
-                                <a class="btn btn-outline-secondary" href="{{url('profile/'.$user->id)}}">{{__('Show')}}</a>
-                                <a class="btn btn-outline-secondary" href="{{url('user/edit/'.$user->id)}}">{{__('Edit')}}</a>
-                                <form class="d-flex" action="{{url('/user/delete/'.$user->id)}}" method="POST"><input type="hidden" name="_method" value="DELETE">
+                                <a class="btn btn-outline-secondary" href="{{url('User/'.$user->id)}}">{{__('Show')}}</a>
+                                <a class="btn btn-outline-secondary" href="{{url('User/'.$user->id.'/edit')}}">{{__('Edit')}}</a>
+                                <form class="d-flex" action="{{url('/User/'.$user->id)}}" method="POST"><input type="hidden" name="_method" value="DELETE">
                                     @csrf
                                             <button class="btn btn-outline-secondary"> {{__('Delete')}} </button>
                                             </form>

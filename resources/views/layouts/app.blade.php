@@ -31,9 +31,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('User.index') }}">{{ __('Dashboard') }}</a>
-                        </li>
+                        @guest
+                        @else
+                        @if (Auth::user()->role_id==1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('User.index') }}">{{ __('Manajamen User') }}</a>
+                            </li>
+                        @endif
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
